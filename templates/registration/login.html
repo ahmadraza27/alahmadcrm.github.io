@@ -1,0 +1,20 @@
+{% extends 'stocks\base.html' %}
+{% load tailwind_filters  %}
+{% block content %}
+<div class="overflow-hidden flex justify-start ">
+    <h1 class="text-gray-700 text-4xl text-center  px-6 py-2 my-2  bg-gray-100  rounded-full shadow shadow-pink-300 ">
+    Please Login Here...
+    </h1>
+</div>  
+    <div class="flex justify-center text-lg border ">
+    <form action="." method="post" class="block rounded-r-full hover:bg-gray-200 m-10 justify-center pl-10 pr-10 capitalize">
+        {% csrf_token %}
+        {{ form|crispy}}
+
+        <button type="submit">submit</button>
+    </form>
+    <a href="{% url 'sign-up'%}">Sign Up</a>
+    </div>
+    {% comment %} {% csrf_token %}
+    {% crispy form %} {% endcomment %}
+    {% endblock content  %}

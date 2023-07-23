@@ -1,0 +1,54 @@
+{% extends 'stocks\base.html' %}
+
+{% block content %}
+	{% comment %} <script src="index.js"></script> {% endcomment %}
+    <div class = "relative">
+        <div class="overflow-hidden flex justify-start ">
+            <h1 class="text-gray-700 text-4xl text-center  px-6 py-2 my-2  bg-gray-100  rounded-full shadow shadow-pink-300 ">
+            Record Of Stock Exclusion 
+            </h1>
+        </div>  
+        <div class="flex justify-center text-sm my-5">
+            <form  method='post'>
+              <label for="company-name">Company Name</label>
+              <input type="text" name="company-name">
+              <label for="tile-code">Tile Code</label>
+              <input type="text" name="tile-code">
+              <label for="box-quantity">Box Quantity</label>
+              <input type="text" name="box-capacity">
+              <label for="box-quantity">By Persony</label>
+              <input type="text" name="by-person">
+            </form>
+          </div>
+        <div class="flex grid grid-cols-5 mt-2 mx-2 rounded-full shadow shadow-pink-600 border border-pink-600">
+            <h1 class="text-lg text-start  p-2 pl-4">ID</h1>
+            <h1 class="text-lg text-start  p-2 ">Company Name</h1>
+            <h1 class="text-lg text-start  p-2">Tile Code</h1>
+            {% comment %} <h1 class="text-lg text-start  p-2">Tile Size</h1> {% endcomment %}
+            <h1 class="text-lg text-start  p-2">Box Quantity</h1>
+            {% comment %} <h1 class="text-lg text-start  p-2">Box Capacity</h1> {% endcomment %}
+            <h1 class="text-lg text-start  p-2">By Person</h1>
+            {% comment %} <h1 class="text-lg text-start  p-2">Date/time</h1> {% endcomment %}
+        </div>
+        {% for stock in object_list %}
+        <div class="flex grid grid-cols-5 mt-2 rounded-full shadow shadow-pink-400 mx-2">
+            <a  href="{% url "stocks:out-detail" stock.pk  %}" class="text-lg text-base  hover:bg-pink-200 transition-all duration-200 h-8 pb-2 pl-4">{{stock.pk}}</a>
+            <a  href="{% url "stocks:out-detail" stock.pk  %}" class="text-lg text-base  hover:bg-pink-200 transition-all duration-200 h-8 pb-2 pl-4">{{stock.company_name}}</a>
+            <a  href="{% url "stocks:out-detail" stock.pk  %}" class="text-lg text-base  hover:bg-pink-200 transition-all duration-200 h-8 pb-2 pl-4 ">{{stock.tile_code}}</a>
+            {% comment %} <a  href="{% url "stocks:in-detail" stock.pk  %}" class="text-lg text-base hover:bg-pink-200 transition-all duration-200 h-8 pb-2 ">{{stock.tile_size}}</a> {% endcomment %}
+            <a  href="{% url "stocks:out-detail" stock.pk  %}" class="text-lg text-base  hover:bg-pink-200 transition-all duration-200 h-8 pb-2 pl-4 ">{{stock.box_quantity_in}}</a>
+            {% comment %} <a  href="{% url "stocks:in-detail" stock.pk  %}" class="text-lg text-base hover:bg-pink-200 transition-all duration-200 h-8 pb-2 ">{{stock.box_capacity}}</a> {% endcomment %}
+            <a  href="{% url "stocks:out-detail" stock.pk  %}" class="text-lg text-base  hover:bg-pink-200 transition-all duration-200 h-8 pb-2 pl-4">{{stock.by_person}}</a>
+            {% comment %} <a  href="{% url "stocks:in-detail" stock.pk  %}" class="text-lg text-base hover:bg-pink-200 transition-all duration-200 h-8 pb-2  ">{{stock.date_and_time}}</a> {% endcomment %}
+        </div>
+        {% comment %} <a href="{% url "stocks:in-detail" stock.pk  %}" class="text-3xl">{{stock}}</a> {% endcomment %}
+        <hr>
+        {% endfor %}
+         
+
+    <div class="absolute text-lg px-3 top-4 right-14 bg-transparent hover:bg-red-500 text-red-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded">
+            <a href="{% url 'stocks:out-create' %}"  >- Exclude Stock</a>
+        </div>
+    </div>
+
+    {% endblock content %}

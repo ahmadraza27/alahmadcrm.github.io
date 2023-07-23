@@ -1,0 +1,15 @@
+{% extends 'stocks\base.html' %}
+{% block content %}
+<div class="overflow-hidden flex justify-start ">
+    <h1 class="text-gray-700 text-4xl text-center  px-6 py-2 my-2  bg-gray-100  rounded-full shadow shadow-pink-300 ">
+    Are You Sure ?
+    </h1>
+</div>  
+    
+    <form action="." method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <hr>
+        <button type="submit">submit</button>
+    </form>
+{% endblock content %}
