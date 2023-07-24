@@ -27,7 +27,7 @@
 {% endblock scrr %}
 {% block content %}
 <div id="main1" class="relative">
-    <div id="sure"class="pb-24 pt-24 hidden absolute opacity-100 mt-8 flex items-center gap-x-4 left-1/2  top-12 rounded-r-full pl-4 pr-10 border border-red-500">
+    <div id="sure"class="pb-24 pt-24 hidden absolute opacity-100 mt-8 flex items-center gap-x-4 left-1/2  top-12 rounded pl-4 pr-10 border border-red-500">
         {% comment %} <img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-10 w-10 rounded-full bg-gray-50"> {% endcomment %}
         <div  class="relative text-sm leading-6 height-48 py-10">
         <p class="font-semibold text-gray-900 pb-10 text-xl ml-2 ">
@@ -62,7 +62,7 @@
         {% comment %} <p class="text-center border border-red-400 rounded-full px-4">TIle Picture</p> {% endcomment %}
         {% comment %} <div class=" text-center h-8 text-gray-600">{{object_detail.tile_picture}}</div> {% endcomment %}
         <p class="text-center border border-red-400 rounded-full px-4">Box Quantity</p>
-        <div class=" text-center h-8 text-gray-600">{{object_detail.box_quantity_in}}</div>
+        <div class=" text-center h-8 text-gray-600">{{object_detail.box_quantity_out}}</div>
         <p class="text-center border border-red-400 rounded-full px-4">Box Capacity</p>
         <div class=" text-center h-8 text-gray-600">{{object_detail.box_capacity}}</div>
         <p class="text-center border border-red-400 rounded-full px-4">By Person</p>

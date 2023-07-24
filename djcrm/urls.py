@@ -16,13 +16,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from .views import stock_view,sign_up_view
+from .views import stock_view,sign_up_view,stock_detail_view,stock_delete_view
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import LoginView,LogoutView
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("",stock_view.as_view(),name='stocks-list'),
+    path("",stock_view,name='stocks-list'),
+    path('stocks/<int:pk>/',stock_detail_view.as_view(),name="stocks-detail" ),
+    path('stocks/<int:pk>/delete',stock_delete_view,name="stocks-delete" ),
     path('stocks/', include("stocks.urls",namespace="stocks")),
     path('login/', LoginView.as_view(),name="log-in"),
     path('logout/', LogoutView.as_view(),name="log-out"),

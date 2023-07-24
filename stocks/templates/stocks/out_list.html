@@ -8,16 +8,20 @@
             Record Of Stock Exclusion 
             </h1>
         </div>  
-        <div class="flex justify-center text-sm my-5">
-            <form  method='post'>
+        <div class="flex justify-center text-sm my-5 mx-26">
+            <form  method='post' class='grid grid-cols-10 text-center'>
+                {% csrf_token %}
+                
+              <a href="{% url 'stocks:out-list' %}"class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white  border border-blue-500 hover:border-transparent rounded">All</a>
               <label for="company-name">Company Name</label>
               <input type="text" name="company-name">
               <label for="tile-code">Tile Code</label>
               <input type="text" name="tile-code">
               <label for="box-quantity">Box Quantity</label>
-              <input type="text" name="box-capacity">
-              <label for="box-quantity">By Persony</label>
+              <input type="text" name="box-quantity">
+              <label for="by-person">By Persony</label>
               <input type="text" name="by-person">
+              <button method='submit'class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white  border border-blue-500 hover:border-transparent rounded">Search</button>
             </form>
           </div>
         <div class="flex grid grid-cols-5 mt-2 mx-2 rounded-full shadow shadow-pink-600 border border-pink-600">
@@ -36,7 +40,7 @@
             <a  href="{% url "stocks:out-detail" stock.pk  %}" class="text-lg text-base  hover:bg-pink-200 transition-all duration-200 h-8 pb-2 pl-4">{{stock.company_name}}</a>
             <a  href="{% url "stocks:out-detail" stock.pk  %}" class="text-lg text-base  hover:bg-pink-200 transition-all duration-200 h-8 pb-2 pl-4 ">{{stock.tile_code}}</a>
             {% comment %} <a  href="{% url "stocks:in-detail" stock.pk  %}" class="text-lg text-base hover:bg-pink-200 transition-all duration-200 h-8 pb-2 ">{{stock.tile_size}}</a> {% endcomment %}
-            <a  href="{% url "stocks:out-detail" stock.pk  %}" class="text-lg text-base  hover:bg-pink-200 transition-all duration-200 h-8 pb-2 pl-4 ">{{stock.box_quantity_in}}</a>
+            <a  href="{% url "stocks:out-detail" stock.pk  %}" class="text-lg text-base  hover:bg-pink-200 transition-all duration-200 h-8 pb-2 pl-4 ">{{stock.box_quantity_out}}</a>
             {% comment %} <a  href="{% url "stocks:in-detail" stock.pk  %}" class="text-lg text-base hover:bg-pink-200 transition-all duration-200 h-8 pb-2 ">{{stock.box_capacity}}</a> {% endcomment %}
             <a  href="{% url "stocks:out-detail" stock.pk  %}" class="text-lg text-base  hover:bg-pink-200 transition-all duration-200 h-8 pb-2 pl-4">{{stock.by_person}}</a>
             {% comment %} <a  href="{% url "stocks:in-detail" stock.pk  %}" class="text-lg text-base hover:bg-pink-200 transition-all duration-200 h-8 pb-2  ">{{stock.date_and_time}}</a> {% endcomment %}

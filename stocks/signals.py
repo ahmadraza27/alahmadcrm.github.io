@@ -1,6 +1,6 @@
 from django.db.models.signals import post_save
 from .models import Stock_in,Stock_out,Stock,User,Person
-
+from django.shortcuts import reverse
 
 def main_stock_update_in_signal(sender,instance , created, **kwargs):
 
@@ -31,16 +31,10 @@ def main_stock_update_out_signal(sender,instance , created, **kwargs):
         # print(st.values())
         st.box_quantity-=instance.box_quantity_out
         st.save()
-    else:
-        Stock.objects.create(
-            company_name = instance.company_name,
-            tile_code = instance.tile_code,
-            tile_size = instance.tile_size,
-            tile_picture = instance.tile_picture,
-            box_quantity = instance.box_quantity_out,
-            box_capacity = instance.box_capacity
-            
-        )
+    else:   
+        print("no stock")
+        return  reverse ('stocks:out-list')
+  
         
         
         

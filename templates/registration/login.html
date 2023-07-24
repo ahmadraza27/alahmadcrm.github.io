@@ -7,7 +7,7 @@
     </h1>
 </div>  
     <div class="flex justify-center text-lg border ">
-    <form action="." method="post" class="block rounded-r-full hover:bg-gray-200 m-10 justify-center pl-10 pr-10 capitalize">
+    <form action="." method="post" class="block rounded hover:bg-gray-200 m-10 justify-center pl-10 pr-10 capitalize">
         {% csrf_token %}
         {{ form|crispy}}
 
