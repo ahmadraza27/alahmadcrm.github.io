@@ -8,7 +8,7 @@ class User(AbstractUser):
 class Person(models.Model):
     person = models.OneToOneField(User, on_delete=models.CASCADE)
     def __str__(self) -> str:
-        return self.person.username
+        return self.person.first_name
 class Stock_in(models.Model):
     company_name = models.CharField(max_length=50)
     tile_code = models.CharField(max_length=100)
@@ -51,9 +51,7 @@ class Stock(models.Model):
     box_quantity = models.IntegerField(null=False)
     box_capacity = models.FloatField(null=False)
     
-    def __str__(self):
-        return f"{self.company_name}, {self.tile_code}"
-    
+
     def __str__(self):
         return f" ID: {self.id} Company Name: {self.company_name} Tile Code: {self.tile_code} Quantity:{self.box_quantity}"
     
